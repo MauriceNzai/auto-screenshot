@@ -1,3 +1,4 @@
+
 name: CI
 
 on:
@@ -26,9 +27,9 @@ jobs:
         pip install -r requirements.txt
 
     - Lint with pycodestyle
-  run: |
-    pip install pycodestyle 
-    pycodestyle src/
+      run: |
+        pip install pycodestyle 
+        pycodestyle src/
 
 
     - name: Run tests
