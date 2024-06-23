@@ -23,14 +23,13 @@ jobs:
 
     - name: Install dependencies
       run: |
-        python -m pipinstall --upgrade pip
+        python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - Lint with pycodestyle
+    - name: Lint with pycodestyle
       run: |
-        pip install pycodestyle 
+        pip install pycodestyle
         pycodestyle src/
-
 
     - name: Run tests
       run: |
