@@ -26,11 +26,10 @@ jobs:
         python -m pipinstall --upgrade pip
         pip install -r requirements.txt
 
-    - Lint with pycodestyle
+    - name: Lint with pycodestyle
       run: |
-        pip install pycodestyle 
+        pip install pycodestyle
         pycodestyle src/
-
 
     - name: Run tests
       run: |
