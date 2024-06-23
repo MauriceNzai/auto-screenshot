@@ -25,7 +25,14 @@ jobs:
         python -m pipinstall --upgrade pip
         pip install -r requirements.txt
 
+    - Lint with pycodestyle
+  run: |
+    pip install pycodestyle 
+    pycodestyle src/
+
+
     - name: Run tests
       run: |
         # Add tests here eg pytest
-        echo "No tests iplemented yet"
+        pip Install pytest
+        pytest tests/
