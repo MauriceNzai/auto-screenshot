@@ -28,7 +28,11 @@ jobs:
 
     - name: Update requirements.txt with latest cloud-init version
       run: |
-        sed -i "s/cloud-init==LATEST_VERSION/cloud-init==$LATEST_VERSION/" requirements.txt
+        if grep -q "cloud-init==" requirements.txt; then
+          sed -i "s/cloud-init==.*/cloud-init==$LATEST_VERSION/" requirements.txt
+        else
+          echo "cloud-init==$LATEST_VERSION" >> requirements.txt
+        fi
         cat requirements.txt  # Display the updated requirements.txt for debugging
 
     - name: Install dependencies
