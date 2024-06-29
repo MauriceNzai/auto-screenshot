@@ -20,6 +20,17 @@ jobs:
       with:
         python-version: '3.x'
 
+    - name: Get latest cloud-init version and update requirements.txt
+      run: |
+        LATEST_VERSION=$(curl -s https://pypi.org/pypi/cloud-init/json | jq -r .info.version)
+        echo "Latest cloud-init version is $LATEST_VERSION"
+        if grep -q "cloud-init" requirements.txt; then
+          sed -i "s/cloud-init==.*/cloud-init==$LATEST_VERSION/" requirements.txt
+        else
+          echo "cloud-init==$LATEST_VERSION" >> requirements.txt
+        fi
+        cat requirements.txt  # Display the updated requirements.txt for debugging
+
 
     - name: Install dependencies
       run: |
