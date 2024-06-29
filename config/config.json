@@ -1,0 +1,11 @@
+{
+  "region": {
+    "x": 5,
+    "y": 5,
+    "width": 780,
+    "height": 345
+  },
+  "interval_min": 3,
+  "interval_max": 5,
+  "output_directory": "./screenshots"
+}
