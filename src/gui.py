@@ -11,6 +11,7 @@ from .config_loader import load_config
 from .screenshot_taker import take_screenshot, ensure_directory
 from .archiver import archive_old_screenshots
 
+
 class ScreenshotApp:
     """
     A GUI application for automating screenshots.
@@ -22,19 +23,19 @@ class ScreenshotApp:
         self.master = master
         master.title("Screenshot Automation")
 
-        self.config_path = StringVar(value = '../config/config.json')
+        self.config_path = StringVar(value='../config/config.json')
 
-        self.label = Label(master, text = "configuration File:")
+        self.label = Label(master, text="configuration File:")
         self.label.pack()
 
-        self.entry = Entry(master, textvariable = self.config_path)
+        self.entry = Entry(master, textvariable=self.config_path)
         self.entry.pack()
 
         self.browse_button = Button(
-                master, text = "Browse", command = self.browse_file)
+                master, text="Browse", command=self.browse_file)
         self.browse_button.pack()
 
-        self.start_button = Button(master, text = "Start", command = self.start)
+        self.start_button = Button(master, text="Start", command=self.start)
         self.start_button.pack()
 
         self.stop_button = Button(master, text="Stop", command=self.stop)
@@ -54,7 +55,7 @@ class ScreenshotApp:
             Start the screenshot automation process.
             """
             self.running = True
-            thread = threading.Thread(target = self.run_screenshot_loop)
+            thread = threading.Thread(target=self.run_screenshot_loop)
             thread.start()
 
         def stop(self):
@@ -77,7 +78,8 @@ class ScreenshotApp:
             ensure_directory(output_directory)
 
             log_msg = "'Starting screenshot capture every"
-            logging.info(f'{log_msg } {interval_min}-{interval_max} seconds...')
+            logging.info(
+                    f'{log_msg } {interval_min}-{interval_max} seconds...')
 
             try:
                 while self.running:
@@ -88,4 +90,3 @@ class ScreenshotApp:
             except Exception as e:
                 logging.error(f'An error occurred: {e}')
                 self.running = False
-

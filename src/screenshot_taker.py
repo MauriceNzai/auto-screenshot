@@ -9,6 +9,7 @@ import time
 import os
 import logging
 
+
 def ensure_directory(directory):
     """
     Ensure the specified directory exists, creating it if necessary.
@@ -19,15 +20,17 @@ def ensure_directory(directory):
     if not os.path.exists(directory):
         os.makedirs(directory)
 
+
 def take_screenshot(region, output_directory):
     """
-    Take a screenshot of the specified region and save it to the output directory.
+    Take screenshot of specified region and save it to output directory.
 
     Args:
-        region (dict): A dictionary containing the 'x', 'y', 'width', and 'height' of the region.
+        region (dict): A dictionary containing the 'x', 'y', 'width',
+        and 'height' of the region.
         output_directory (str): Directory to save the screenshot.
     """
-    screenshot = pyautogui.screenshot(region = (
+    screenshot = pyautogui.screenshot(region=(
         region['x'], region['y'], region['width'], region['height']))
     filename = os.path.join(
             output_directory, f'screenshot_{int(time.time())}.png')
