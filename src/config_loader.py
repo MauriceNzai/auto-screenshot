@@ -6,6 +6,7 @@ Contains functions for loading configuration files.
 
 import json
 
+
 def load_config(config_path):
     """
     Load the JSON configuration file from the given path.

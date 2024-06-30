@@ -9,6 +9,7 @@ import time
 import shutil
 import logging
 
+
 def archive_old_screenshots(output_directory, archive_days):
     """
     Archive screenshots older than a specified number of days.
