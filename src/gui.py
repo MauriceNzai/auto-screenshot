@@ -79,7 +79,7 @@ class ScreenshotApp:
 
             log_msg = "'Starting screenshot capture every"
             logging.info(
-                    f'{log_msg } {interval_min}-{interval_max} seconds...')
+                    f'{log_msg} {interval_min}-{interval_max} seconds...')
 
             try:
                 while self.running:
