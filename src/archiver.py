@@ -15,7 +15,8 @@ def archive_old_screenshots(output_directory, archive_days):
 
     Args:
         output_directory (str): Directory containing the screenshots.
-        archive_days (int): Number of days after which screenshots should be archived.
+        archive_days (int): Number of days after which screenshots
+        should be archived.
     """
     now = time.time()
     cutoff = now - (archive_days * 86400)

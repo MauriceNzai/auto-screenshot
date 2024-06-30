@@ -24,7 +24,8 @@ def take_screenshot(region, output_directory):
     Take a screenshot of the specified region and save it to the output directory.
 
     Args:
-        region (dict): A dictionary containing the 'x', 'y', 'width', and 'height' of the region.
+        region (dict): A dictionary containing the 'x', 'y', 'width',
+        and 'height' of the region.
         output_directory (str): Directory to save the screenshot.
     """
     screenshot = pyautogui.screenshot(region = (
