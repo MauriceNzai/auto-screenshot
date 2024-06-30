@@ -33,5 +33,5 @@ jobs:
     - name: Run tests
       run: |
         # Add tests here eg pytest
-        pip Install pytest
+        pip install pytest
         pytest tests/
